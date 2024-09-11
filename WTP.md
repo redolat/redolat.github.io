@@ -1,6 +1,8 @@
+---
 layout: page
 title: "WTP"
 permalink: /WTP
+---
 
 # wild-life-analytics
 
