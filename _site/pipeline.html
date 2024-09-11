@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Reza Dolatabadi</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Reza Dolatabadi" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/pipeline.html" />
+<meta property="og:url" content="http://localhost:4000/pipeline.html" />
+<meta property="og:site_name" content="Reza Dolatabadi" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Reza Dolatabadi" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Reza Dolatabadi","url":"http://localhost:4000/pipeline.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=58a09f7abcbc25ad02b72f242d659378c5d75dc4">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">redolat.github.io</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/redolat/redolat.github.io" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p>Developing a pipeline in Python can be an iterative process. Initially, you should focus on getting a basic version working, and then gradually add features and improve the code structure. Here’s a step-by-step guide:</p>
+
+<h3 id="step-1-set-up-the-basic-pipeline">Step 1: Set Up the Basic Pipeline</h3>
+
+<ol>
+  <li><strong>Define the Pipeline’s Objective:</strong>
+    <ul>
+      <li>Clearly define what the pipeline should accomplish. For example, it could be a data processing pipeline, a machine learning pipeline, or a CI/CD pipeline.</li>
+    </ul>
+  </li>
+  <li><strong>Create a Simple, Linear Workflow:</strong>
+    <ul>
+      <li>Start with a simple script where all the tasks are executed sequentially.</li>
+      <li>Example structure:
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">step_1</span><span class="p">():</span>
+    <span class="c1"># Task 1 code
+</span>    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">step_2</span><span class="p">():</span>
+    <span class="c1"># Task 2 code
+</span>    <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">step_1</span><span class="p">()</span>
+    <span class="n">step_2</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>        </div>
+      </li>
+      <li>Keep each function or task small and manageable.</li>
+    </ul>
+  </li>
+  <li><strong>Test the Basic Pipeline:</strong>
+    <ul>
+      <li>Run the pipeline end-to-end to ensure all the steps work correctly.</li>
+      <li>Focus on functionality, not optimization.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="step-2-add-logging-and-error-handling">Step 2: Add Logging and Error Handling</h3>
+
+<ol>
+  <li><strong>Add Basic Logging:</strong>
+    <ul>
+      <li>Introduce logging to track the progress of each step.</li>
+      <li>Example:
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">logging</span>
+     
+<span class="n">logging</span><span class="p">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="p">.</span><span class="n">INFO</span><span class="p">)</span>
+     
+<span class="k">def</span> <span class="nf">step_1</span><span class="p">():</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Starting Step 1"</span><span class="p">)</span>
+    <span class="c1"># Task 1 code
+</span>    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Completed Step 1"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">step_2</span><span class="p">():</span>
+    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Starting Step 2"</span><span class="p">)</span>
+    <span class="c1"># Task 2 code
+</span>    <span class="n">logging</span><span class="p">.</span><span class="n">info</span><span class="p">(</span><span class="s">"Completed Step 2"</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Implement Error Handling:</strong>
+    <ul>
+      <li>Wrap critical sections of the code with <code class="language-plaintext highlighter-rouge">try-except</code> blocks to handle potential errors gracefully.</li>
+      <li>Example:
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">step_1</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Task 1 code
+</span>        <span class="k">pass</span>
+    <span class="k">except</span> <span class="nb">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s">"Step 1 failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="step-3-modularize-the-code">Step 3: Modularize the Code</h3>
+
+<ol>
+  <li><strong>Refactor Code into Modules:</strong>
+    <ul>
+      <li>Move each step into separate Python files (modules) if the project grows in complexity.</li>
+      <li>Example structure:
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pipeline/
+    __init__.py
+    step_1.py
+    step_2.py
+    main.py
+</code></pre></div>        </div>
+        <ul>
+          <li>Update the <code class="language-plaintext highlighter-rouge">main.py</code> script to import and run the steps.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Use Configuration Files:</strong>
+    <ul>
+      <li>Introduce a configuration file (e.g., <code class="language-plaintext highlighter-rouge">config.yaml</code> or <code class="language-plaintext highlighter-rouge">config.json</code>) to store parameters instead of hard-coding them.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="step-4-add-features-and-flexibility">Step 4: Add Features and Flexibility</h3>
+
+<ol>
+  <li><strong>Add Command-Line Arguments:</strong>
+    <ul>
+      <li>Use libraries like <code class="language-plaintext highlighter-rouge">argparse</code> to allow running different parts of the pipeline or passing different parameters via the command line.</li>
+      <li>Example:
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="p">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">"Pipeline"</span><span class="p">)</span>
+    <span class="n">parser</span><span class="p">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">"--step"</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">"1"</span><span class="p">,</span> <span class="s">"2"</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s">"Run specific step"</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="p">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="p">.</span><span class="n">step</span> <span class="o">==</span> <span class="s">"1"</span><span class="p">:</span>
+        <span class="n">step_1</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="p">.</span><span class="n">step</span> <span class="o">==</span> <span class="s">"2"</span><span class="p">:</span>
+        <span class="n">step_2</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">step_1</span><span class="p">()</span>
+        <span class="n">step_2</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Introduce Parallelism:</strong>
+    <ul>
+      <li>If possible, use multithreading or multiprocessing to execute independent steps concurrently.</li>
+      <li>Example using <code class="language-plaintext highlighter-rouge">concurrent.futures</code>:
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">concurrent.futures</span>
+
+<span class="k">with</span> <span class="n">concurrent</span><span class="p">.</span><span class="n">futures</span><span class="p">.</span><span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">executor</span><span class="p">.</span><span class="n">submit</span><span class="p">(</span><span class="n">step_1</span><span class="p">)</span>
+    <span class="n">executor</span><span class="p">.</span><span class="n">submit</span><span class="p">(</span><span class="n">step_2</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Implement Data Validation:</strong>
+    <ul>
+      <li>Add checks to validate the input and output data for each step to ensure data consistency.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="step-5-optimize-and-refactor">Step 5: Optimize and Refactor</h3>
+
+<ol>
+  <li><strong>Optimize Performance:</strong>
+    <ul>
+      <li>Profile the code to identify bottlenecks and optimize them (e.g., improve I/O operations, use efficient data structures).</li>
+    </ul>
+  </li>
+  <li><strong>Refactor for Reusability:</strong>
+    <ul>
+      <li>Look for repetitive code and refactor it into reusable functions or classes.</li>
+    </ul>
+  </li>
+  <li><strong>Add Unit Tests:</strong>
+    <ul>
+      <li>Write tests for each step to ensure they work as expected.</li>
+      <li>Use libraries like <code class="language-plaintext highlighter-rouge">unittest</code> or <code class="language-plaintext highlighter-rouge">pytest</code> for testing.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="step-6-documentation-and-maintenance">Step 6: Documentation and Maintenance</h3>
+
+<ol>
+  <li><strong>Document the Pipeline:</strong>
+    <ul>
+      <li>Write clear documentation explaining how to use the pipeline, including dependencies, configuration, and instructions for running each step.</li>
+    </ul>
+  </li>
+  <li><strong>Set Up Continuous Integration (CI):</strong>
+    <ul>
+      <li>Automate the testing and deployment of the pipeline using a CI tool like GitHub Actions or Jenkins.</li>
+    </ul>
+  </li>
+  <li><strong>Monitor and Maintain:</strong>
+    <ul>
+      <li>Set up monitoring and logging to track the pipeline in production and maintain it as requirements evolve.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<p>Starting with a simple version of the pipeline allows you to focus on the core functionality first, ensuring it works before adding complexity. By following these steps, you can iteratively improve your pipeline while maintaining code quality and performance.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/redolat/redolat.github.io">redolat.github.io</a> is maintained by <a href="https://github.com/redolat">redolat</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
