@@ -1,9 +1,3 @@
----
-layout: page
-title: "SOLID"
-permalink: /SOLID
----
-
 The SOLID principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion) are fundamental to writing clean, maintainable, and scalable code. Below is a Python example of a `Pipeline` class that adheres to these principles. The pipeline consists of several blocks, each representing an API call with either an API key or Bearer token for authentication. The code is kept between 100-200 lines and uses subclasses to represent different API calls.
 
 ```python

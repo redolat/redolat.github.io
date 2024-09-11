@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Reza Dolatabadi</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Reza Dolatabadi" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/solid.html" />
+<meta property="og:url" content="http://localhost:4000/solid.html" />
+<meta property="og:site_name" content="Reza Dolatabadi" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Reza Dolatabadi" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Reza Dolatabadi","url":"http://localhost:4000/solid.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=58a09f7abcbc25ad02b72f242d659378c5d75dc4">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">redolat.github.io</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/redolat/redolat.github.io" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <p>The SOLID principles (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion) are fundamental to writing clean, maintainable, and scalable code. Below is a Python example of a <code class="language-plaintext highlighter-rouge">Pipeline</code> class that adheres to these principles. The pipeline consists of several blocks, each representing an API call with either an API key or Bearer token for authentication. The code is kept between 100-200 lines and uses subclasses to represent different API calls.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="c1"># Interface Segregation Principle: Abstract class for all API blocks
+</span><span class="k">class</span> <span class="nc">APIBlock</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="c1"># Single Responsibility Principle: Each block handles a single API call
+</span>
+<span class="k">class</span> <span class="nc">APIBlock1</span><span class="p">(</span><span class="n">APIBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+
+    <span class="k">def</span> <span class="nf">fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+        <span class="c1"># Simulate API call using the api_key
+</span>        <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"Data from API 1 with key </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">api_key</span><span class="si">}</span><span class="s"> based on </span><span class="si">{</span><span class="n">input_data</span><span class="si">}</span><span class="s">"</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+<span class="k">class</span> <span class="nc">APIBlock2</span><span class="p">(</span><span class="n">APIBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bearer_token</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">bearer_token</span> <span class="o">=</span> <span class="n">bearer_token</span>
+
+    <span class="k">def</span> <span class="nf">fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+        <span class="c1"># Simulate API call using the bearer_token
+</span>        <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"Data from API 2 with bearer token </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">bearer_token</span><span class="si">}</span><span class="s"> based on </span><span class="si">{</span><span class="n">input_data</span><span class="si">}</span><span class="s">"</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+<span class="k">class</span> <span class="nc">APIBlock3</span><span class="p">(</span><span class="n">APIBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+
+    <span class="k">def</span> <span class="nf">fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+        <span class="c1"># Simulate API call using the api_key
+</span>        <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"Data from API 3 with key </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">api_key</span><span class="si">}</span><span class="s"> based on </span><span class="si">{</span><span class="n">input_data</span><span class="si">}</span><span class="s">"</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+<span class="k">class</span> <span class="nc">APIBlock4</span><span class="p">(</span><span class="n">APIBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bearer_token</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">bearer_token</span> <span class="o">=</span> <span class="n">bearer_token</span>
+
+    <span class="k">def</span> <span class="nf">fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+        <span class="c1"># Simulate API call using the bearer_token
+</span>        <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"Data from API 4 with bearer token </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">bearer_token</span><span class="si">}</span><span class="s"> based on </span><span class="si">{</span><span class="n">input_data</span><span class="si">}</span><span class="s">"</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+<span class="k">class</span> <span class="nc">APIBlock5</span><span class="p">(</span><span class="n">APIBlock</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span>
+
+    <span class="k">def</span> <span class="nf">fetch_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+        <span class="c1"># Simulate API call using the api_key
+</span>        <span class="n">response</span> <span class="o">=</span> <span class="sa">f</span><span class="s">"Data from API 5 with key </span><span class="si">{</span><span class="bp">self</span><span class="p">.</span><span class="n">api_key</span><span class="si">}</span><span class="s"> based on </span><span class="si">{</span><span class="n">input_data</span><span class="si">}</span><span class="s">"</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+<span class="c1"># Open/Closed Principle: The Pipeline class is open for extension by adding new APIBlock subclasses but closed for modification.
+</span>
+<span class="k">class</span> <span class="nc">Pipeline</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blocks</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">blocks</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">initial_input</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">initial_input</span>
+        <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">.</span><span class="n">blocks</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">block</span><span class="p">.</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+<span class="c1"># Dependency Inversion Principle: High-level modules should not depend on low-level modules. Both should depend on abstractions.
+</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="c1"># Instantiate the pipeline with different API blocks
+</span>    <span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+        <span class="n">APIBlock1</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s">"API_KEY_1"</span><span class="p">),</span>
+        <span class="n">APIBlock2</span><span class="p">(</span><span class="n">bearer_token</span><span class="o">=</span><span class="s">"BEARER_TOKEN_2"</span><span class="p">),</span>
+        <span class="n">APIBlock3</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s">"API_KEY_3"</span><span class="p">),</span>
+        <span class="n">APIBlock4</span><span class="p">(</span><span class="n">bearer_token</span><span class="o">=</span><span class="s">"BEARER_TOKEN_4"</span><span class="p">),</span>
+        <span class="n">APIBlock5</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s">"API_KEY_5"</span><span class="p">),</span>
+    <span class="p">])</span>
+
+    <span class="c1"># Run the pipeline with initial input
+</span>    <span class="n">result</span> <span class="o">=</span> <span class="n">pipeline</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">initial_input</span><span class="o">=</span><span class="s">"Initial Input Data"</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="explanation">Explanation:</h3>
+
+<ol>
+  <li>
+    <p><strong>Single Responsibility Principle (SRP)</strong>: Each API block (<code class="language-plaintext highlighter-rouge">APIBlock1</code>, <code class="language-plaintext highlighter-rouge">APIBlock2</code>, etc.) is responsible for only one API call.</p>
+  </li>
+  <li>
+    <p><strong>Open/Closed Principle (OCP)</strong>: The <code class="language-plaintext highlighter-rouge">Pipeline</code> class can be extended with new <code class="language-plaintext highlighter-rouge">APIBlock</code> subclasses without modifying its code.</p>
+  </li>
+  <li>
+    <p><strong>Liskov Substitution Principle (LSP)</strong>: Each <code class="language-plaintext highlighter-rouge">APIBlock</code> subclass can be substituted with any other subclass without affecting the <code class="language-plaintext highlighter-rouge">Pipeline</code> class’s functionality.</p>
+  </li>
+  <li>
+    <p><strong>Interface Segregation Principle (ISP)</strong>: The <code class="language-plaintext highlighter-rouge">APIBlock</code> abstract class enforces that each block only implements the <code class="language-plaintext highlighter-rouge">fetch_data</code> method it requires.</p>
+  </li>
+  <li>
+    <p><strong>Dependency Inversion Principle (DIP)</strong>: The <code class="language-plaintext highlighter-rouge">Pipeline</code> class depends on the abstraction (<code class="language-plaintext highlighter-rouge">APIBlock</code>), not on specific implementations.</p>
+  </li>
+</ol>
+
+<p>This solution adheres to the SOLID principles and provides a scalable and maintainable architecture for your pipeline. The total code is within the 100-200 lines range, and the use of subclasses makes it easy to extend the pipeline with new blocks.</p>
+
+<p>When writing clean and maintainable code, several design principles can guide you, one of the most popular being <strong>SOLID</strong> principles. These principles help improve software architecture and maintainability. Here’s a breakdown of <strong>SOLID</strong> principles with examples in Python:</p>
+
+<h3 id="1-s---single-responsibility-principle-srp">1. <strong>S - Single Responsibility Principle (SRP)</strong></h3>
+<p>A class should have only one reason to change, meaning it should have only one responsibility or job.</p>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Invoice</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+
+    <span class="k">def</span> <span class="nf">calculate_total</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">amount</span> <span class="o">*</span> <span class="mf">1.2</span>  <span class="c1"># Add tax (20%)
+</span>
+<span class="k">class</span> <span class="nc">InvoicePrinter</span><span class="p">:</span>
+    <span class="o">@</span><span class="nb">staticmethod</span>
+    <span class="k">def</span> <span class="nf">print_invoice</span><span class="p">(</span><span class="n">invoice</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Invoice Total: </span><span class="si">{</span><span class="n">invoice</span><span class="p">.</span><span class="n">calculate_total</span><span class="p">()</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+
+<span class="c1"># Usage:
+</span><span class="n">invoice</span> <span class="o">=</span> <span class="n">Invoice</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">InvoicePrinter</span><span class="p">.</span><span class="n">print_invoice</span><span class="p">(</span><span class="n">invoice</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>In this example, the <code class="language-plaintext highlighter-rouge">Invoice</code> class handles the business logic of the invoice, while the <code class="language-plaintext highlighter-rouge">InvoicePrinter</code> class takes care of the printing. Each class has a single responsibility.</p>
+
+<hr />
+
+<h3 id="2-o---openclosed-principle-ocp">2. <strong>O - Open/Closed Principle (OCP)</strong></h3>
+<p>Software entities (classes, modules, functions) should be open for extension but closed for modification.</p>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="k">class</span> <span class="nc">Discount</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">NoDiscount</span><span class="p">(</span><span class="n">Discount</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">total</span>
+
+<span class="k">class</span> <span class="nc">PercentageDiscount</span><span class="p">(</span><span class="n">Discount</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">percentage</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">percentage</span> <span class="o">=</span> <span class="n">percentage</span>
+
+    <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">total</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">total</span> <span class="o">-</span> <span class="p">(</span><span class="n">total</span> <span class="o">*</span> <span class="bp">self</span><span class="p">.</span><span class="n">percentage</span><span class="p">)</span>
+
+<span class="c1"># Usage:
+</span><span class="n">discount_strategy</span> <span class="o">=</span> <span class="n">PercentageDiscount</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># 10% discount
+</span><span class="n">total</span> <span class="o">=</span> <span class="n">discount_strategy</span><span class="p">.</span><span class="nb">apply</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Total after discount: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here, the discount strategy can be extended by adding new discount classes without modifying existing code, making it follow the OCP principle.</p>
+
+<hr />
+
+<h3 id="3-l---liskov-substitution-principle-lsp">3. <strong>L - Liskov Substitution Principle (LSP)</strong></h3>
+<p>Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.</p>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Bird</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"Flying"</span>
+
+<span class="k">class</span> <span class="nc">Sparrow</span><span class="p">(</span><span class="n">Bird</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Penguin</span><span class="p">(</span><span class="n">Bird</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">fly</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="nb">Exception</span><span class="p">(</span><span class="s">"Penguins can't fly!"</span><span class="p">)</span>
+
+<span class="c1"># Usage:
+</span><span class="k">def</span> <span class="nf">make_bird_fly</span><span class="p">(</span><span class="n">bird</span><span class="p">:</span> <span class="n">Bird</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">bird</span><span class="p">.</span><span class="n">fly</span><span class="p">()</span>
+
+<span class="n">sparrow</span> <span class="o">=</span> <span class="n">Sparrow</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">make_bird_fly</span><span class="p">(</span><span class="n">sparrow</span><span class="p">))</span>  <span class="c1"># Works fine
+</span>
+<span class="n">penguin</span> <span class="o">=</span> <span class="n">Penguin</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">make_bird_fly</span><span class="p">(</span><span class="n">penguin</span><span class="p">))</span>  <span class="c1"># Throws an error (violates LSP)
+</span></code></pre></div></div>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">Penguin</code> violates LSP because it’s a <code class="language-plaintext highlighter-rouge">Bird</code> that can’t fly. A better design might avoid using <code class="language-plaintext highlighter-rouge">fly</code> for <code class="language-plaintext highlighter-rouge">Penguin</code> or represent it in another way to keep behavior consistent.</p>
+
+<hr />
+
+<h3 id="4-i---interface-segregation-principle-isp">4. <strong>I - Interface Segregation Principle (ISP)</strong></h3>
+<p>Clients should not be forced to depend on interfaces they do not use.</p>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Printer</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">print_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">Scanner</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">scan_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MultiFunctionPrinter</span><span class="p">(</span><span class="n">Printer</span><span class="p">,</span> <span class="n">Scanner</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Printing document"</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">scan_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Scanning document"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">SimplePrinter</span><span class="p">(</span><span class="n">Printer</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">print_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Printing document"</span><span class="p">)</span>
+
+<span class="c1"># Usage:
+</span><span class="n">printer</span> <span class="o">=</span> <span class="n">SimplePrinter</span><span class="p">()</span>
+<span class="n">printer</span><span class="p">.</span><span class="n">print_document</span><span class="p">()</span>  <span class="c1"># Works without needing to implement scan
+</span></code></pre></div></div>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">SimplePrinter</code> implements only the <code class="language-plaintext highlighter-rouge">Printer</code> interface, and isn’t forced to implement <code class="language-plaintext highlighter-rouge">Scanner</code>. This adheres to ISP by keeping interfaces small and focused.</p>
+
+<hr />
+
+<h3 id="5-d---dependency-inversion-principle-dip">5. <strong>D - Dependency Inversion Principle (DIP)</strong></h3>
+<p>High-level modules should not depend on low-level modules. Both should depend on abstractions.</p>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Database</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="o">@</span><span class="n">abstractmethod</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="k">class</span> <span class="nc">MySQLDatabase</span><span class="p">(</span><span class="n">Database</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Saving data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s"> to MySQL Database"</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Database</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">db</span> <span class="o">=</span> <span class="n">db</span>
+
+    <span class="k">def</span> <span class="nf">save_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Usage:
+</span><span class="n">db</span> <span class="o">=</span> <span class="n">MySQLDatabase</span><span class="p">()</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Application</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="n">save_data</span><span class="p">(</span><span class="s">"Some important data"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here, the <code class="language-plaintext highlighter-rouge">Application</code> depends on the abstraction <code class="language-plaintext highlighter-rouge">Database</code>, not the concrete <code class="language-plaintext highlighter-rouge">MySQLDatabase</code>. This makes the code more flexible, allowing different types of databases to be used without changing the application logic.</p>
+
+<hr />
+
+<p>By following these <strong>SOLID</strong> principles, you can create code that is easier to maintain, extend, and scale.</p>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/redolat/redolat.github.io">redolat.github.io</a> is maintained by <a href="https://github.com/redolat">redolat</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
