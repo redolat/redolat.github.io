@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>redolat.github.io</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="redolat.github.io" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/wtp.html" />
+<meta property="og:url" content="http://localhost:4000/wtp.html" />
+<meta property="og:site_name" content="redolat.github.io" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="redolat.github.io" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"redolat.github.io","url":"http://localhost:4000/wtp.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=3f80c2ff6cacd5bf9ce5cc072cf72fe86f8e93b2">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+      <h1><a href="http://localhost:4000/">redolat.github.io</a></h1>
+      
+
+      <p>layout: page
+title: “WTP”
+permalink: /WTP</p>
+
+<h1 id="wild-life-analytics">wild-life-analytics</h1>
+
+<p>Analyse wild life</p>
+
+<p>Willingness to Pay (WTP) in biodiversity conservation is a measure of how much individuals or society are willing to pay to preserve or enhance biodiversity. It is a key concept in environmental economics used to estimate the value of non-market goods and services. Several methods and functions are used to calculate WTP for biodiversity, including stated preference methods (like contingent valuation and choice modeling) and revealed preference methods (like hedonic pricing and travel cost methods).</p>
+
+<h3 id="methods-to-calculate-wtp-in-biodiversity">Methods to Calculate WTP in Biodiversity</h3>
+
+<ol>
+  <li><strong>Contingent Valuation Method (CVM)</strong>
+    <ul>
+      <li><strong>Description</strong>: This method uses surveys to ask people directly how much they would be willing to pay for specific environmental benefits or to avoid certain environmental losses.</li>
+      <li><strong>Steps</strong>:
+        <ol>
+          <li>Define the biodiversity change or conservation project.</li>
+          <li>Design and distribute a survey with hypothetical scenarios.</li>
+          <li>Collect responses on WTP.</li>
+          <li>Analyze the data using statistical methods.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Choice Modeling (CM)</strong>
+    <ul>
+      <li><strong>Description</strong>: This method involves presenting respondents with sets of hypothetical choices, each containing different attributes with varying levels, and asking them to choose their preferred option.</li>
+      <li><strong>Steps</strong>:
+        <ol>
+          <li>Define attributes and levels related to biodiversity.</li>
+          <li>Design choice sets and distribute them in surveys.</li>
+          <li>Collect responses on preferences.</li>
+          <li>Use econometric models (e.g., multinomial logit models) to estimate WTP for changes in attributes.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Hedonic Pricing Method (HPM)</strong>
+    <ul>
+      <li><strong>Description</strong>: This method infers WTP from the prices of market goods that are affected by biodiversity, such as property prices or agricultural land values.</li>
+      <li><strong>Steps</strong>:
+        <ol>
+          <li>Collect data on market prices and biodiversity attributes.</li>
+          <li>Use regression analysis to isolate the effect of biodiversity on prices.</li>
+          <li>Estimate the implicit price of biodiversity attributes.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Travel Cost Method (TCM)</strong>
+    <ul>
+      <li><strong>Description</strong>: This method estimates WTP based on the costs incurred by people when they visit a site with biodiversity attributes.</li>
+      <li><strong>Steps</strong>:
+        <ol>
+          <li>Collect data on travel expenses and visitor numbers.</li>
+          <li>Estimate a demand curve for visits to the site.</li>
+          <li>Calculate consumer surplus as a measure of WTP.</li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="functions-and-models-used">Functions and Models Used</h3>
+
+<ol>
+  <li><strong>Contingent Valuation Analysis</strong>
+    <ul>
+      <li><strong>Logit/Probit Models</strong>: Used to analyze binary WTP responses (yes/no).
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_model</span> <span class="kn">import</span> <span class="n">Logit</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Logit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">wtp</span> <span class="o">=</span> <span class="o">-</span><span class="n">result</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span> <span class="o">/</span> <span class="n">result</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'price'</span><span class="p">]</span>
+</code></pre></div>        </div>
+      </li>
+      <li><strong>Linear/Non-linear Regression</strong>: Used to analyze continuous WTP responses.
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">statsmodels.api</span> <span class="kn">import</span> <span class="n">OLS</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">wtp</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">params</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Choice Modeling Analysis</strong>
+    <ul>
+      <li><strong>Multinomial Logit Model</strong>: Used to estimate WTP from choice experiment data.
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">statsmodels.discrete.discrete_model</span> <span class="kn">import</span> <span class="n">MNLogit</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">MNLogit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">wtp</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">params</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Hedonic Pricing Analysis</strong>
+    <ul>
+      <li><strong>Hedonic Regression</strong>: Used to estimate the implicit price of biodiversity attributes.
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">statsmodels.api</span> <span class="kn">import</span> <span class="n">OLS</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">OLS</span><span class="p">(</span><span class="n">property_prices</span><span class="p">,</span> <span class="n">biodiversity_attributes</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="p">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">implicit_prices</span> <span class="o">=</span> <span class="n">result</span><span class="p">.</span><span class="n">params</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Travel Cost Analysis</strong>
+    <ul>
+      <li><strong>Zonal Travel Cost Method</strong>: Estimates WTP by analyzing the relationship between travel costs and visit rates.
+        <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">curve_fit</span>
+
+<span class="k">def</span> <span class="nf">demand_curve</span><span class="p">(</span><span class="n">travel_cost</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">*</span> <span class="n">travel_cost</span><span class="p">)</span>
+
+<span class="n">params</span><span class="p">,</span> <span class="n">covariance</span> <span class="o">=</span> <span class="n">curve_fit</span><span class="p">(</span><span class="n">demand_curve</span><span class="p">,</span> <span class="n">travel_costs</span><span class="p">,</span> <span class="n">visit_rates</span><span class="p">)</span>
+<span class="n">wtp</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">trapz</span><span class="p">(</span><span class="n">demand_curve</span><span class="p">(</span><span class="n">travel_costs</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">),</span> <span class="n">travel_costs</span><span class="p">)</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="example-calculation">Example Calculation</h3>
+
+<p><strong>Contingent Valuation Example:</strong></p>
+
+<p>Assume a survey where respondents are asked if they would pay a specific amount for a biodiversity project. The responses (yes/no) and the amounts offered are analyzed using a logistic regression model.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+
+<span class="c1"># Hypothetical survey data
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'response'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s">'amount'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Add a constant term for the intercept
+</span><span class="n">data</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Fit the logistic regression model
+</span><span class="n">logit_model</span> <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'response'</span><span class="p">],</span> <span class="n">data</span><span class="p">[[</span><span class="s">'constant'</span><span class="p">,</span> <span class="s">'amount'</span><span class="p">]])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">logit_model</span><span class="p">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Calculate WTP
+</span><span class="n">wtp</span> <span class="o">=</span> <span class="o">-</span><span class="n">result</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span> <span class="o">/</span> <span class="n">result</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'amount'</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Estimated WTP: $</span><span class="si">{</span><span class="n">wtp</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This example demonstrates the process of estimating WTP using a simple logistic regression model based on contingent valuation survey data. The actual implementation can be more complex depending on the specifics of the study and data available.</p>
+
+<p>The Travel Cost Method (TCM) is a revealed preference method used to estimate the economic value of ecosystem services or recreational sites by observing the expenses incurred by visitors. It relies on the assumption that the time and travel cost expenses that people incur to visit a site represent the “price” of access to that site. Here is a more detailed look at TCM:</p>
+
+<h3 id="types-of-travel-cost-method">Types of Travel Cost Method</h3>
+
+<ol>
+  <li><strong>Zonal Travel Cost Method (ZTCM)</strong>
+    <ul>
+      <li>Uses data on the number of visits from different geographic zones around a site.</li>
+      <li>Calculates the average travel cost from each zone and the total number of visits.</li>
+      <li>Constructs a demand curve by relating the number of visits to the travel cost.</li>
+    </ul>
+  </li>
+  <li><strong>Individual Travel Cost Method (ITCM)</strong>
+    <ul>
+      <li>Uses survey data from individual visitors about their travel costs, time spent, and other relevant factors.</li>
+      <li>Constructs a demand function at the individual level.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="steps-to-implement-the-travel-cost-method">Steps to Implement the Travel Cost Method</h3>
+
+<ol>
+  <li><strong>Define the Study Area and Sites</strong>
+    <ul>
+      <li>Identify the recreational site or biodiversity area to be valued.</li>
+      <li>Define the geographic extent of the study area.</li>
+    </ul>
+  </li>
+  <li><strong>Collect Data</strong>
+    <ul>
+      <li><strong>Visitor Surveys</strong>: Gather data on travel expenses, number of visits, distance traveled, time spent, socio-economic characteristics, and alternative sites.</li>
+      <li><strong>Secondary Data</strong>: Obtain data on population, income levels, and other relevant variables for the zones around the site.</li>
+    </ul>
+  </li>
+  <li><strong>Calculate Travel Costs</strong>
+    <ul>
+      <li>Include transportation costs (fuel, vehicle wear and tear), time costs (value of time spent traveling), and any entry fees.</li>
+      <li>Travel cost formula:
+[
+\text{Travel Cost} = \text{Transportation Cost} + \text{Value of Travel Time}
+]</li>
+      <li>Value of travel time is often approximated as a fraction (e.g., 1/3) of the wage rate.</li>
+    </ul>
+  </li>
+  <li><strong>Estimate the Demand Function</strong>
+    <ul>
+      <li>For ZTCM: Use the number of visits from each zone and corresponding travel costs to estimate a zonal demand curve.</li>
+      <li>For ITCM: Use individual travel cost data to estimate a personal demand function.</li>
+      <li>Common models include:
+        <ul>
+          <li><strong>Linear Regression</strong>: Relate visit rates to travel costs and other variables.</li>
+          <li><strong>Poisson or Negative Binomial Regression</strong>: For count data models when the dependent variable is the number of visits.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Calculate Consumer Surplus</strong>
+    <ul>
+      <li>Integrate the area under the demand curve to estimate the total consumer surplus, representing the total WTP.</li>
+      <li>Consumer surplus formula for a linear demand curve:
+[
+\text{Consumer Surplus} = \int_{0}^{Q} \left( P(Q) - C \right) dQ
+]</li>
+      <li>Where ( P(Q) ) is the price (travel cost) at quantity ( Q ), and ( C ) is the current cost (typically zero for entry-free sites).</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="example-calculation-1">Example Calculation</h3>
+
+<p>Here is a detailed example using the Individual Travel Cost Method (ITCM):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># Hypothetical survey data
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'visits'</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="s">'travel_cost'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s">'income'</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>  <span class="c1"># in thousands
+</span><span class="p">})</span>
+
+<span class="c1"># Create a constant term for the intercept
+</span><span class="n">data</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Define the independent variables
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s">'constant'</span><span class="p">,</span> <span class="s">'travel_cost'</span><span class="p">,</span> <span class="s">'income'</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'visits'</span><span class="p">]</span>
+
+<span class="c1"># Fit the regression model (using Poisson regression for count data)
+</span><span class="n">poisson_model</span> <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="p">.</span><span class="n">families</span><span class="p">.</span><span class="n">Poisson</span><span class="p">()).</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Display model summary
+</span><span class="k">print</span><span class="p">(</span><span class="n">poisson_model</span><span class="p">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Predict visit rates based on the model
+</span><span class="n">data</span><span class="p">[</span><span class="s">'predicted_visits'</span><span class="p">]</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Plot the demand curve
+</span><span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'visits'</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s">'Actual Visits'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'predicted_visits'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Predicted Visits'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Travel Cost'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Number of Visits'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Demand Curve for Recreational Site'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Estimate Consumer Surplus (CS)
+# Integrate the area under the demand curve
+# Here, we approximate using a simple numerical integration method (trapezoidal rule)
+</span><span class="k">def</span> <span class="nf">demand_curve</span><span class="p">(</span><span class="n">travel_cost</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">travel_cost</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">travel_cost</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Parameters from the regression model
+</span><span class="n">a</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'income'</span><span class="p">]</span>
+
+<span class="c1"># Integrate from minimum to maximum travel cost
+</span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+
+<span class="n">cs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tc</span><span class="p">:</span> <span class="n">demand_curve</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">].</span><span class="nb">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">].</span><span class="nb">max</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Estimated Consumer Surplus: $</span><span class="si">{</span><span class="n">cs</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="considerations">Considerations</h3>
+
+<ul>
+  <li><strong>Substitute Sites</strong>: Account for the availability of alternative sites which might affect visit rates.</li>
+  <li><strong>Multi-purpose Trips</strong>: Some trips may have multiple purposes, complicating the allocation of travel costs.</li>
+  <li><strong>Seasonality</strong>: Visits may vary by season, affecting the estimation of demand.</li>
+  <li><strong>Income and Demographics</strong>: Include socio-economic variables to capture differences in WTP.</li>
+</ul>
+
+<h3 id="advantages-and-disadvantages">Advantages and Disadvantages</h3>
+
+<p><strong>Advantages:</strong></p>
+<ul>
+  <li>Based on actual behavior, providing a realistic measure of WTP.</li>
+  <li>Useful for estimating the value of recreational sites and ecosystem services.</li>
+</ul>
+
+<p><strong>Disadvantages:</strong></p>
+<ul>
+  <li>Requires extensive data collection through surveys.</li>
+  <li>Assumes travel cost is the primary factor influencing visits, which may not always be true.</li>
+  <li>Difficult to apply to non-use values (values not related to direct use or visits).</li>
+</ul>
+
+<p>The TCM is a valuable tool in environmental economics for valuing natural resources and recreational sites, offering insights into the economic benefits of conservation and management efforts.</p>
+
+<p>Yes, you can include household income as an explanatory variable in the Travel Cost Method (TCM) to better understand how income influences the willingness to pay (WTP) for accessing a biodiversity or recreational site. Including income helps capture differences in WTP among households with different economic circumstances.</p>
+
+<p>Here’s a detailed guide on how to include household income in calculating WTP using both the Individual Travel Cost Method (ITCM) and the Zonal Travel Cost Method (ZTCM).</p>
+
+<h3 id="individual-travel-cost-method-itcm-with-household-income">Individual Travel Cost Method (ITCM) with Household Income</h3>
+
+<ol>
+  <li><strong>Data Collection:</strong>
+    <ul>
+      <li>Collect survey data from visitors, including:
+        <ul>
+          <li>Number of visits to the site.</li>
+          <li>Travel costs incurred.</li>
+          <li>Household income.</li>
+          <li>Other relevant socio-economic variables (age, education, etc.).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Data Preparation:</strong>
+    <ul>
+      <li>Create a dataframe with the collected data.</li>
+    </ul>
+  </li>
+  <li><strong>Regression Model:</strong>
+    <ul>
+      <li>Use a regression model to estimate the relationship between the number of visits and travel costs, including household income as an explanatory variable.</li>
+    </ul>
+  </li>
+  <li><strong>Consumer Surplus Calculation:</strong>
+    <ul>
+      <li>Integrate the area under the estimated demand curve to calculate consumer surplus, which represents the total WTP.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Here is an example using Python and the <code class="language-plaintext highlighter-rouge">statsmodels</code> library:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+
+<span class="c1"># Hypothetical survey data
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'visits'</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="s">'travel_cost'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s">'income'</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>  <span class="c1"># in thousands
+</span><span class="p">})</span>
+
+<span class="c1"># Create a constant term for the intercept
+</span><span class="n">data</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Define the independent variables
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s">'constant'</span><span class="p">,</span> <span class="s">'travel_cost'</span><span class="p">,</span> <span class="s">'income'</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'visits'</span><span class="p">]</span>
+
+<span class="c1"># Fit the regression model (using Poisson regression for count data)
+</span><span class="n">poisson_model</span> <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="n">GLM</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="n">sm</span><span class="p">.</span><span class="n">families</span><span class="p">.</span><span class="n">Poisson</span><span class="p">()).</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Display model summary
+</span><span class="k">print</span><span class="p">(</span><span class="n">poisson_model</span><span class="p">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Predict visit rates based on the model
+</span><span class="n">data</span><span class="p">[</span><span class="s">'predicted_visits'</span><span class="p">]</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Plot the demand curve
+</span><span class="n">plt</span><span class="p">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'visits'</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s">'Actual Visits'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'predicted_visits'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">'red'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'Predicted Visits'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Travel Cost'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Number of Visits'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Demand Curve for Recreational Site'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Estimate Consumer Surplus (CS)
+# Integrate the area under the demand curve
+# Here, we approximate using a simple numerical integration method (trapezoidal rule)
+</span><span class="k">def</span> <span class="nf">demand_curve</span><span class="p">(</span><span class="n">travel_cost</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">travel_cost_coef</span><span class="p">,</span> <span class="n">income_coef</span><span class="p">,</span> <span class="n">income_level</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">constant</span> <span class="o">+</span> <span class="n">travel_cost_coef</span> <span class="o">*</span> <span class="n">travel_cost</span> <span class="o">+</span> <span class="n">income_coef</span> <span class="o">*</span> <span class="n">income_level</span>
+
+<span class="c1"># Parameters from the regression model
+</span><span class="n">constant</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span>
+<span class="n">travel_cost_coef</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">]</span>
+<span class="n">income_coef</span> <span class="o">=</span> <span class="n">poisson_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'income'</span><span class="p">]</span>
+
+<span class="c1"># Average income level
+</span><span class="n">average_income</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'income'</span><span class="p">].</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Integrate from minimum to maximum travel cost
+</span><span class="n">cs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tc</span><span class="p">:</span> <span class="n">demand_curve</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">travel_cost_coef</span><span class="p">,</span> <span class="n">income_coef</span><span class="p">,</span> <span class="n">average_income</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">].</span><span class="nb">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">].</span><span class="nb">max</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Estimated Consumer Surplus: $</span><span class="si">{</span><span class="n">cs</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="zonal-travel-cost-method-ztcm-with-household-income">Zonal Travel Cost Method (ZTCM) with Household Income</h3>
+
+<ol>
+  <li><strong>Data Collection:</strong>
+    <ul>
+      <li>Collect data on the number of visits from different geographic zones, average travel costs, and average household incomes in those zones.</li>
+    </ul>
+  </li>
+  <li><strong>Data Preparation:</strong>
+    <ul>
+      <li>Create a dataframe with zonal data.</li>
+    </ul>
+  </li>
+  <li><strong>Regression Model:</strong>
+    <ul>
+      <li>Use a regression model to estimate the relationship between the number of visits from each zone and the travel costs, including average household income as an explanatory variable.</li>
+    </ul>
+  </li>
+  <li><strong>Demand Function Estimation:</strong>
+    <ul>
+      <li>Estimate the demand function and calculate consumer surplus.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>Here is an example:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="n">sm</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">quad</span>
+
+<span class="c1"># Hypothetical zonal data
+</span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s">'zone'</span><span class="p">:</span> <span class="p">[</span><span class="s">'A'</span><span class="p">,</span> <span class="s">'B'</span><span class="p">,</span> <span class="s">'C'</span><span class="p">,</span> <span class="s">'D'</span><span class="p">,</span> <span class="s">'E'</span><span class="p">],</span>
+    <span class="s">'visits'</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">120</span><span class="p">],</span>
+    <span class="s">'travel_cost'</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="s">'income'</span><span class="p">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>  <span class="c1"># in thousands
+</span><span class="p">})</span>
+
+<span class="c1"># Create a constant term for the intercept
+</span><span class="n">data</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Define the independent variables
+</span><span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s">'constant'</span><span class="p">,</span> <span class="s">'travel_cost'</span><span class="p">,</span> <span class="s">'income'</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'visits'</span><span class="p">]</span>
+
+<span class="c1"># Fit the regression model (using OLS for zonal data)
+</span><span class="n">ols_model</span> <span class="o">=</span> <span class="n">sm</span><span class="p">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">X</span><span class="p">).</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Display model summary
+</span><span class="k">print</span><span class="p">(</span><span class="n">ols_model</span><span class="p">.</span><span class="n">summary</span><span class="p">())</span>
+
+<span class="c1"># Estimate the demand function
+</span><span class="k">def</span> <span class="nf">demand_curve</span><span class="p">(</span><span class="n">travel_cost</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">travel_cost_coef</span><span class="p">,</span> <span class="n">income_coef</span><span class="p">,</span> <span class="n">income_level</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">constant</span> <span class="o">+</span> <span class="n">travel_cost_coef</span> <span class="o">*</span> <span class="n">travel_cost</span> <span class="o">+</span> <span class="n">income_coef</span> <span class="o">*</span> <span class="n">income_level</span>
+
+<span class="c1"># Parameters from the regression model
+</span><span class="n">constant</span> <span class="o">=</span> <span class="n">ols_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'constant'</span><span class="p">]</span>
+<span class="n">travel_cost_coef</span> <span class="o">=</span> <span class="n">ols_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">]</span>
+<span class="n">income_coef</span> <span class="o">=</span> <span class="n">ols_model</span><span class="p">.</span><span class="n">params</span><span class="p">[</span><span class="s">'income'</span><span class="p">]</span>
+
+<span class="c1"># Average income level
+</span><span class="n">average_income</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">'income'</span><span class="p">].</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Integrate the demand curve to find consumer surplus
+</span><span class="n">cs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">quad</span><span class="p">(</span><span class="k">lambda</span> <span class="n">tc</span><span class="p">:</span> <span class="n">demand_curve</span><span class="p">(</span><span class="n">tc</span><span class="p">,</span> <span class="n">constant</span><span class="p">,</span> <span class="n">travel_cost_coef</span><span class="p">,</span> <span class="n">income_coef</span><span class="p">,</span> <span class="n">average_income</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">].</span><span class="nb">min</span><span class="p">(),</span> <span class="n">data</span><span class="p">[</span><span class="s">'travel_cost'</span><span class="p">].</span><span class="nb">max</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Estimated Consumer Surplus: $</span><span class="si">{</span><span class="n">cs</span><span class="si">:</span><span class="p">.</span><span class="mi">2</span><span class="n">f</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="considerations-1">Considerations</h3>
+
+<ul>
+  <li><strong>Model Selection</strong>: Choose an appropriate regression model based on the nature of your data (e.g., Poisson for count data, OLS for zonal data).</li>
+  <li><strong>Income Interaction</strong>: You may consider interaction terms between income and travel cost to capture non-linear effects.</li>
+  <li><strong>Data Quality</strong>: Ensure the accuracy and reliability of the collected data, as errors can significantly impact the results.</li>
+</ul>
+
+<p>Including household income in the TCM helps provide a more nuanced estimate of WTP, reflecting the influence of economic factors on visitors’ decisions.</p>
+
+
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
