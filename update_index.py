@@ -1,6 +1,6 @@
 import os
 
-md_files = [f.split(".")[0] for f in os.listdir() if f.endswith('.md')]
+md_files = sorted([f.split(".")[0] for f in os.listdir() if f.endswith('.md') and f not in ["README.md"]])
 print(md_files)
 
 description_dict = {
